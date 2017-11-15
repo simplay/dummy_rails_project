@@ -1,0 +1,43 @@
+Comming soon
+
+<br>
+
+<%= link_to "new", new_article_path %>
+<br>
+
+<br>
+<table>
+  <th>ID</th>
+  <th>Title</th>
+  <th>Text</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <% @articles.each do |artcile| %>
+    <tr>
+      <td>
+       <%= artcile.id %>
+      </td>
+      <td>
+        <%= artcile.title %>
+      </td>
+      <td>
+       <%= artcile.text %>
+      </td>
+      <td>
+        <%= link_to "show", article_path(artcile.id) %>
+      </td>
+      <td>
+        <%= link_to "edit", edit_article_path(artcile.id) %>
+      </td>
+      <td>
+        <%=
+          link_to "delete",
+                   article_path(artcile.id),
+                   method: :delete,
+                   data: { confirm: "Are you sure?" }
+        %>
+      </td>
+    </tr>
+  <% end %>
+</table>
